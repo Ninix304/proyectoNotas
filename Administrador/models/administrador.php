@@ -4,8 +4,11 @@ class Administrador extends Conexion{
     public function __construct(){
         $this->db = parent::__construct();
     }
+
+    //Funcion para registrar usuarios
+     
     public function agregarad($Nombread, $Apellidoad, $Usuarioad, $Passwordad, $Perfilad, $Estadoad){
-        $statement = $this->db->prepare("INSERT INTO Usuarios(Nombreusu,Apellidousu,Usuario,Passwordusu,Perfil,Estado)VALUES(:Nombread,:Apellidoad,:Usuarioad,:Passwordad,:'Administrador',:'Activo')");
+        $statement = $this->db->prepare("INSERT INTO Usuarios(Nombreusu,Apellidousu,Usuario,Passwordusu,Perfil,Estado)VALUES(:Nombread,:Apellidoad,:Usuarioad,:Passwordad,:Perfil,:Estadoad)");
 
         $statement->bindParam(":Nombread", $Nombread);
         $statement->bindParam(":Apellidoad", $Apellidoad);
