@@ -11,7 +11,7 @@ class Conexion{
         try{
             $db = new PDO("{$this->drive}:host={$this -> host};dbname={$this->dbname}",$this->user, $this->password);
             $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            //return $db;
+            return $db;
             echo "Conexion realizada";
 
         }catch(PDOException $e){

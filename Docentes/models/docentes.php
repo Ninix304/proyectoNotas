@@ -4,15 +4,18 @@ class Docentes extends Conexion{
     public function __construct(){
         $this->db = parent::__construct();
     }
-    public function agregardo($Nombredo, $Apellidodo, $Documentodo, $Correodo, $Materiado, $Notasma){
-        $statement = $this->db->prepare("INSERT INTO docente(Nombredoc,Apellidodoc,Documentodoc,Correodoc,Materiadoc,Notasmate)VALUES(:Nombredo,:Apellidodo,:Documentodo,:Correodo,:'Materiado',:'Notasma')");
+    public function agregardo($Nombredo, $Apellidodo, $Documentodo, $Correodo, $Materiado,$Usuariodo,$Passworddo,$Perfildo,$Estadodo){
+        $statement = $this->db->prepare("INSERT INTO docente(Nombredoc,Apellidodoc,Documentodoc,Correodoc,Materiadoc,Usuariodoc,Passworddoc,Perfil,Estadodoc)VALUES(:Nombredo,:Apellidodo,:Documentodo,:Correodo,:Materiado,:Usuariodo,:Passworddo,:Perfildo,:Estadodo)");
 
         $statement->bindParam(":Nombredo", $Nombredo);
         $statement->bindParam(":Apellidodo", $Apellidodo);
         $statement->bindParam(":Documentodo", $Documentodo);
         $statement->bindParam(":Correodo", $Correodo);
         $statement->bindParam(":Materiado", $Materiado);
-        $statement->bindParam(":Notasma", $Notasma);
+        $statement->bindParam(":Usuariodo", $Usuariodo);
+        $statement->bindParam(":Passworddo", $Passworddo);
+        $statement->bindParam(":Perfildo", $Perfildo);
+        $statement->bindParam(":Estadodo", $Estadodo);
 
         if($statement->execute()){
             echo"Docente registrado";
@@ -45,16 +48,20 @@ class Docentes extends Conexion{
         }
         return $row;
     }
-    public function updatead($Id,$Nombredo, $Apellidodo, $Documentodo, $Correodo, $Materiado, $Notasma){
+    public function updatead($Id,$Nombredo, $Apellidodo, $Documentodo, $Correodo, $Materiado,$Usuariodo,$Passworddo,$Perfildo,$Estadodo){
 
-        $statement=$this->db->prepare("UPDATE docente SET Nombredoc=:Nombredo, Apellidodoc=:Apellidodo,Documentodoc=:Documentodo, Correodoc=:Correodo, Materiadoc=:Materiado, Notasmate=:Notasma WHERE id_usuario=$Id" );
+        $statement=$this->db->prepare("UPDATE docente SET Nombredoc=:Nombredo, Apellidodoc=:Apellidodo,Documentodoc=:Documentodo, Correodoc=:Correodo, Materiadoc=:Materiado, Usuariodoc=:Usuariodo,Passworddoc=:Passworddo,Perfil=:Perfildo,Estadodoc=:Estadodo WHERE id_usuario=$Id" );
 
         $statement->bindParam(":Nombredo", $Nombredo);
         $statement->bindParam(":Apellidodo", $Apellidodo);
         $statement->bindParam(":Documentodo", $Documentodo);
         $statement->bindParam(":Correodo", $Correodo);
         $statement->bindParam(":Materiado", $Materiado);
-        $statement->bindParam(":Notasma", $Notasma);
+  
+        $statement->bindParam(":Usuariodo", $Usuariodo);
+        $statement->bindParam(":Passworddo", $Passworddo);
+        $statement->bindParam(":Perfildo", $Perfildo);
+        $statement->bindParam(":Estadodo", $Estadodo);
         if($statement->execute()){
             echo"docente actualizado";
             header('Location: ../Pages/index.php');
