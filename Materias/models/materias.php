@@ -5,9 +5,9 @@ class Materia extends Conexion{
         $this->db = parent::__construct();
     }
     public function agregarmate($Nombremate){
-        $statement = $this->db->prepare("INSERT INTO Usuarios(Nombreusu,Apellidousu,Usuario,Passwordusu,Perfil,Estado)VALUES(:Nombread,:Apellidoad,:Usuarioad,:Passwordad,:'Administrador',:'Activo')");
+        $statement = $this->db->prepare("INSERT INTO materias(Nombremate)VALUES(:Nombremate)");
 
-        $statement->bindParam(":Nombread", $Nombremate);
+        $statement->bindParam(":Nombremate", $Nombremate);
 
         if($statement->execute()){
             echo"Materia registrada";
