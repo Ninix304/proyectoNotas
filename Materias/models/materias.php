@@ -5,17 +5,27 @@ class Materia extends Conexion{
         $this->db = parent::__construct();
     }
     public function agregarmate($Nombremate){
+
+        //verificar de que no exista una materia en la bd
+        $sql1 = "SELECT * FROM materias WHERE Nombremate = '$Nombremate'";
+        $resultado = $this->db->query($sql1);
+        if($resultado->rowCount() > 0){
+            echo "<script>alert('La materia ya esta registrado');
+            window.location = '../pages/agregar.php';</script>";
+        }else{
+
         $statement = $this->db->prepare("INSERT INTO materias(Nombremate)VALUES(:Nombremate)");
 
         $statement->bindParam(":Nombremate", $Nombremate);
 
         if($statement->execute()){
             echo"Materia registrada";
-            header('location: ../Pages/index.php');
+            header('location: ../pages/index.php');
         }else{
             echo "No se pudo realizar el registro";
-            header('location: ../Pages/agregar.php');
+            header('location: ../pages/agregar.php');
         }
+    }
     }
 
     //funcion para seleccionar todos los datos de las materias

@@ -5,6 +5,15 @@ class Administrador extends Conexion{
         $this->db = parent::__construct();
     }
     public function agregarestu($Nombreestu, $Apellidoestu, $Documentoestu, $Correoestu, $Materia, $Docente,$Promedio,$Fecha_registro){
+        
+        //verificar de que no exista un usuario en la bd
+        $sql1 = "SELECT * FROM estudiantes WHERE Documentoestu = '$Documentoestu'";
+        $resultado = $this->db->query($sql1);
+        if($resultado->rowCount() > 0){
+            echo "<script>alert('El estudiante ya esta registrado');
+            window.location = '../pages/agregar.php';</script>";
+        }else{
+        
         $statement = $this->db->prepare("INSERT INTO estudiantes(Nombreestu,Apellidoestu,Documentoestu,Correoestu,Materia,Docente,Promedio,Fecha_registro)VALUES(:Nombreestu,:Apellidoestu,:Documentoestu,:Correoestu,:Materia,:Docente, :Promedio, :Fecha_registro)");
 
         $statement->bindParam(":Nombreestu", $Nombreestu);
@@ -23,6 +32,7 @@ class Administrador extends Conexion{
             echo "No se pudo realizar el registro";
             header('location: ../Pages/agregar.php');
         }
+    }
     }
 
     //funcion para seleccionar todos los usuarios con el rol estudiante
