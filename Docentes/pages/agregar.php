@@ -32,7 +32,7 @@
             <div id="contenedorcentrado">
                 <div id="login">
                     <form id="loginform" action="../Controller/Agregardocente.php" method="post">
-                        <label for="nombre">Nombre Docente</label>
+                        <label for="nombre">Nombre </label>
                         <input id="Nombre" type="text" name="txtnombredoc" placeholder="Nombre" required>
                         
                         <label for="Apellido">Apellido</label>
@@ -73,7 +73,7 @@
                 </div>
                 <div id="derecho">
                     <div class="titulo">
-                        Registro de Usuario
+                        Registro de Docentes
                     </div>
                     <hr>
                     <div class="pie-form">

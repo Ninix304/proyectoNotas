@@ -5,6 +5,15 @@ class Docentes extends Conexion{
         $this->db = parent::__construct();
     }
     public function agregardo($Nombredo, $Apellidodo, $Documentodo, $Correodo, $Materiado,$Usuariodo,$Passworddo,$Perfildo,$Estadodo){
+        $sql1= "SELECT * FROM docente WHERE Usuariodoc = '$Usuariodo'";
+        $resultado=$this->db->query($sql1);
+        if($resultado->rowCount() >0){
+            echo "<script>
+            alert('El Docente ya está registrado');
+            window.location= '../pages/agregar.php';
+            </script>";
+        }
+        else{
         $statement = $this->db->prepare("INSERT INTO docente(Nombredoc,Apellidodoc,Documentodoc,Correodoc,Materiadoc,Usuariodoc,Passworddoc,Perfil,Estadodoc)VALUES(:Nombredo,:Apellidodo,:Documentodo,:Correodo,:Materiado,:Usuariodo,:Passworddo,:Perfildo,:Estadodo)");
 
         $statement->bindParam(":Nombredo", $Nombredo);
@@ -24,6 +33,7 @@ class Docentes extends Conexion{
             echo "No se pudo realizar el docente";
             header('Location: ../Pages/agregar.php');
         }
+    }
     }
 
 
