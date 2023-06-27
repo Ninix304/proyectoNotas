@@ -31,7 +31,7 @@
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="loginform" action="../Controller/AgregarMateria.php" method="post">
+                    <form id="loginform" action="../Controller/agregarmateria.php" method="post">
                         <label for="nombre">Nombre Materia</label>
                         <input id="Nombre" type="text" name="txtnombremate" placeholder="Nombre" required>
                         
@@ -41,7 +41,7 @@
                 </div>
                 <div id="derecho">
                     <div class="titulo">
-                        Registro de Usuario
+                        Registro de Materia
                     </div>
                     <hr>
                     <div class="pie-form">

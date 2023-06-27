@@ -46,31 +46,29 @@ class Administrador extends Conexion{
 
     }
     public function getidad($Id){
-        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE id_usuario=:Id");
+        
+        $statement=$this->db->prepare("SELECT * FROM usuarios WHERE  id_usuario=:Id");
         $statement->bindparam(':Id',$Id);
         $statement->execute();
-        //Obtener los resultados utilizando fetch()
-        $resultado = $statement->fetch(PDO::FETCH_ASSOC);
-
-        //Devolver los resultados
+        $resultado =$statement->fetch(PDO::FETCH_ASSOC);
         return $resultado;
     }
-    public function updatead($Id,$Nombread, $Apellidoad, $Usuarioad, $Passwordad, $Perfil, $Estadoad){
+    public function updatead($Id,$Nombread, $Apellidoad, $Usuarioad, $Passwordad,$perfil,$Estadoad){
 
-        $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id, Nombreusu=:Nombread, Apellidousu=:Apellidoad,Usuario=:Usuarioad, Passwordusu=:Passwordad, Perfil:=Perfil Estado=:Estadoad WHERE id_usuario=$Id" );
-        $statement->bindParam(":Id", $Id);
+        $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id, Nombreusu=:Nombread, Apellidousu=:Apellidoad,Usuario=:Usuarioad, Passwordusu=:Passwordad,Perfil=:Perfil, Estado=:Estadoad WHERE id_usuario=$Id" );
+        $statement->bindparam(":Id",$Id);
         $statement->bindParam(":Nombread", $Nombread);
         $statement->bindParam(":Apellidoad", $Apellidoad);
         $statement->bindParam(":Usuarioad", $Usuarioad);
         $statement->bindParam(":Passwordad", $Passwordad);
-        $statement->bindParam(":Perfil", $Perfil);
+        $statement->bindParam(":Perfil", $perfil);
         $statement->bindParam(":Estadoad", $Estadoad);
         if($statement->execute()){
             echo"Usuario actualizado";
-            header('Location: ../pages/index.php');
+            header('Location: ../Pages/index.php');
         }else{
             echo "No se pudo realizar la actualizacion";
-            header('Location: ../pages/editar.php');
+            header('Location: ../Pages/editar.php');
         }
 
     }

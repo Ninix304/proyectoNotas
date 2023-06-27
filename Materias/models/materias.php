@@ -40,24 +40,23 @@ class Materia extends Conexion{
     }
     //Funcion para seleccionar un usuario por su id
     public function getidmate($Id){
-        $row = null;
-        $statement = $this->db->prepare("SELECT * FROM materias WHERE id_materia = :Id");
-        $statement -> bindParam(':Id',$Id);
+        $statement=$this->db->prepare("SELECT * FROM materias WHERE  id_materia=:Id");
+        $statement->bindparam(':Id',$Id);
         $statement->execute();
-        while($resul = $statement->fetch()){
-            $row[]  = $resul;
-        }
-        return $row;
+        $resultado =$statement->fetch(PDO::FETCH_ASSOC);
+        return $resultado;
     }
     //Funcion para actualizar los datos del usuario
     public function updatemate($Id, $Nombremate){
-        $statement = $this->db->prepare("UPDATE materias SET Nombremate = :Nombremate WHERE id_materia = :Id");
-        $statement -> bindParam(':Id',$Id);
-        $statement -> bindParam(':Nombremate',$Nombremate);
+        $statement=$this->db->prepare("UPDATE materias SET id_materia=:Id, Nombremate=:Nombremate WHERE id_materia=$Id" );
+        $statement->bindparam(":Id",$Id);
+        $statement->bindParam(":Nombremate", $Nombremate);
         if($statement->execute()){
-            header('Location: ../pages/index.php');
+            echo"Materia actualizada";
+            header('Location: ../Pages/index.php');
         }else{
-            header('Location: ../pages/editar.php');
+            echo "No se pudo realizar la actualización";
+            header('Location: ../Pages/editar.php');
         }
     }
     //Funcion para eliminar un usuario
