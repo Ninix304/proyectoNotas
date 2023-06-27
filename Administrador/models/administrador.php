@@ -61,7 +61,7 @@ class Administrador extends Conexion{
         $statement->bindParam(":Apellidoad", $Apellidoad);
         $statement->bindParam(":Usuarioad", $Usuarioad);
         $statement->bindParam(":Passwordad", $Passwordad);
-        $statement->bindParam(":Perfil", $Perfil);
+        $statement->bindParam(":Perfil", $perfil);
         $statement->bindParam(":Estadoad", $Estadoad);
         if($statement->execute()){
             echo"Usuario actualizado";

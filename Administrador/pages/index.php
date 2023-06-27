@@ -33,6 +33,7 @@
                         $datos=$objeto->getad();
                     
                         foreach($datos as $datos){
+                      
                             ?>
                     <tr>
                         <td><?php echo $datos['id_usuario'] ?></td>
