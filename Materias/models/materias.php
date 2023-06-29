@@ -19,11 +19,11 @@ class Materia extends Conexion{
         $statement->bindParam(":Nombremate", $Nombremate);
 
         if($statement->execute()){
-            echo"Materia registrada";
-            header('location: ../pages/index.php');
+            print "<script>alert('Materia registrada');
+        window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar el registro";
-            header('location: ../pages/agregar.php');
+            print "<script>alert('No se pudo realizar el registro');
+        window.location='../pages/agregar.php';</script>";
         }
     }
     }
@@ -52,11 +52,11 @@ class Materia extends Conexion{
         $statement->bindparam(":Id",$Id);
         $statement->bindParam(":Nombremate", $Nombremate);
         if($statement->execute()){
-            echo"Materia actualizada";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Materia actualizada');
+        window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar la actualización";
-            header('Location: ../Pages/editar.php');
+            print "<script>alert('No se pudo actualizar');
+        window.location='../pages/editar.php';</script>";
         }
     }
     //Funcion para eliminar un usuario
@@ -64,11 +64,11 @@ class Materia extends Conexion{
         $statement = $this->db->prepare("DELETE FROM materias WHERE id_materia = :Id");
         $statement->bindParam(':Id',$Id);
         if($statement->execute()){
-            echo "Materia eliminada";
-            header('Location: ../pages/index.php');
+            print "<script>alert('Materia eliminada');
+        window.location='../pages/index.php';</script>";
         }else{
-            echo "La materia no se pudo eliminar";
-            header('Location: ../pages/eliminar.php');
+            print "<script>alert('No se pudo eliminar');
+        window.location='../pages/eliminar.php';</script>";
         }
     }
 }
