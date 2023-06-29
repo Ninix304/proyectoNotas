@@ -73,7 +73,7 @@ class Administrador extends Conexion{
 
     }
     public function deletead($Id){
-        $statement=$this->db->prepare("DELETE * FROM usuarios WHERE id_usuario=:Id");
+        $statement=$this->db->prepare("DELETE FROM usuarios WHERE id_usuario=:Id");
         $statement->bindParam(':Id', $Id);
         if($statement->execute()){
             echo"Usuario eliminao";
