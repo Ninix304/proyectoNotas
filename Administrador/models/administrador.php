@@ -25,11 +25,11 @@ class Administrador extends Conexion{
         $statement->bindParam(":Estadoad", $Estadoad);
 
         if($statement->execute()){
-            echo"Usuario registrado";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Usuario registrado');
+        window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar el registro";
-            header('Location: ../Pages/agregar.php');
+            print "<script>alert('No se pudo registrar');
+        window.location='../pages/agregar.php';</script>";
         }
     }
     }
@@ -64,23 +64,23 @@ class Administrador extends Conexion{
         $statement->bindParam(":Perfil", $perfil);
         $statement->bindParam(":Estadoad", $Estadoad);
         if($statement->execute()){
-            echo"Usuario actualizado";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Usuario actualizado');
+        window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar la actualizacion";
-            header('Location: ../Pages/editar.php');
+            print "<script>alert('El usuario no se pudo actualizar');
+        window.location='../pages/editar.php';</script>";
         }
 
     }
     public function deletead($Id){
-        $statement=$this->db->prepare("DELETE * FROM usuarios WHERE id_usuario=:Id");
+        $statement=$this->db->prepare("DELETE FROM usuarios WHERE id_usuario=:Id");
         $statement->bindParam(':Id', $Id);
         if($statement->execute()){
-            echo"Usuario eliminao";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Usuario eliminado');
+        window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar la eliminacion";
-            header('Location: ../Pages/eliminar.php');
+            print "<script>alert('El usuario no pudo ser eliminado');
+        window.location='../pages/eliminar.php';</script>";
         }
 
     }

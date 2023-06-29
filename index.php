@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <title>Document</title>
+</head>
+<body>
+=======
+>>>>>>> Nixon
     <link rel="stylesheet" href="css/inicioSesion.css">
     <title>Iniciar sesion</title>
 </head>
@@ -26,5 +32,12 @@
             </form>
         </div>
     </div>
+<<<<<<< HEAD
+    <title></title>
+</head>
+<body>
+    
+=======
+>>>>>>> Nixon
 </body>
 </html>
