@@ -51,21 +51,12 @@
                             <option value="Docente">Docente</option>
                         </select>
 
-                        <label for="Docente">Docente</label>
-                        <select name="txtdocenteest" id="Docente">
+                        <label for="Materia">Materia</label>
+                        <select name="txtmateriaest" id="Materia">
                             <option selected>Elegir opcion</option>
-                            <?php
-                                require_once('../../Conexion.php');
-                                require_once('../models/estudiantes.php');
-
-                                $doce="SELECT * from estudiantes";
-                                $result=mysqli_query($Conexion,$doce);
-                                while($valores =mysqli_fetch_array($result)){
-                                    echo '<option value="'.$valores[Nombredoc].'">'.$valores[Nombredoc].'</option>';
-                                }
-                                
-                            ?>
-                            </select>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Docente">Docente</option>
+                        </select>
                         <label for="Promedio">Promedio</label>
                         <input id="Promedio" type="number" name="txtpromedioest" placeholder="Contraseña" required>
                        
