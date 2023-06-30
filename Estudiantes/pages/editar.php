@@ -63,8 +63,8 @@
                         <input id="Correo" type="email" name="txtcorreoest" value="<?php echo $row['Correoestu']?>">
                         
                         <label for="Docente">Docente</label>
-                        <select name="txtdocente" id="Docente" value="<?php echo $row['Docente']?>">
-                            <option selected>Elegir opcion</option>
+                        <select name="txtdocente" id="Docente" value="<?php echo $row['Docente']?>" required>
+                            
                             <?php
                                 $doce = $consul->getdocentes();
                                 if($doce != null){
@@ -78,8 +78,8 @@
                         </select>
 
                         <label for="Materia">Materia</label>
-                        <select name="txtmateriaest" id="Materia" value="<?php echo $row['Materia']?>">
-                            <option>Elegir opcion</option>
+                        <select name="txtmateriaest" id="Materia" value="<?php echo $row['Materia']?>" required>
+                            
                             <?php
                                 $mate = $consul->getmaterias();
                                 if($mate != null){

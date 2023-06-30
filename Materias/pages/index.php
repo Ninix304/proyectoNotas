@@ -31,7 +31,7 @@
                         <td><?php echo $datos['id_materia'] ?></td>
                         <td><?php echo $datos['Nombremate'] ?></td>
                         <td><a href="editar.php?Id=<?php echo $datos['id_materia'] ?>" class="btn btn-primary">ACTUALIZAR</a></td>
-                        <td><a href="eliminar.php?Id=<?php echo $datos['id_materia'] ?>" class="btn btn-warning">ELIMINAR</a></td>
+                        <td><a href="../controller/eliminarmateria.php?Id=<?php echo $datos['id_materia'] ?>" class="btn btn-warning">ELIMINAR</a></td>
 
                     </tr>
                     <?php } ?>
