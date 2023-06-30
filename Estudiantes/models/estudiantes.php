@@ -1,101 +1,84 @@
 <?php
 include_once('../../Conexion.php');
-class Administrador extends Conexion{
+
+class Estudiantes extends Conexion{
     public function __construct(){
         $this->db = parent::__construct();
     }
-    public function agregarestu($Nombreestu, $Apellidoestu, $Documentoestu, $Correoestu, $Materia, $Docente,$Promedio,$Fecha_registro){
-        
-        //verificar de que no exista un usuario en la bd
-        $sql1 = "SELECT * FROM estudiantes WHERE Documentoestu = '$Documentoestu'";
-        $resultado = $this->db->query($sql1);
-        if($resultado->rowCount() > 0){
-            echo "<script>alert('El estudiante ya esta registrado');
-            window.location = '../pages/agregar.php';</script>";
-        }else{
-        
-        $statement = $this->db->prepare("INSERT INTO estudiantes(Nombreestu,Apellidoestu,Documentoestu,Correoestu,Materia,Docente,Promedio,Fecha_registro)VALUES(:Nombreestu,:Apellidoestu,:Documentoestu,:Correoestu,:Materia,:Docente, :Promedio, :Fecha_registro)");
+    public function agregarest($Nombreest, $Apellidoest, $Documentoest, $Correoest, $Materiaest,$Docenteest,$Promedioes,$Fechareg){
+        $statement = $this->db->prepare("INSERT INTO estudiantes(Nombreestu,Apellidoestu,Documentoestu,Correoestu,Materia,Docente,Promedio,Fecha_registro)VALUES(:Nombreest,:Apellidoest,:Documentoest,:Correoest,:Materiaest,:Docenteest,:Promedioes,:Fechareg)");
 
-        $statement->bindParam(":Nombreestu", $Nombreestu);
-        $statement->bindParam(":Apellidoestu", $Apellidoestu);
-        $statement->bindParam(":Documentoestu", $Documentoestu);
-        $statement->bindParam(":Correoestu", $Correoestu);
-        $statement->bindParam(":Materia", $Materia);
-        $statement->bindParam(":Docente", $Docente);
-        $statement->bindParam(":Promedio", $Promedio);
-        $statement->bindParam(":Fecha_registro", $Fecha_registro);
+        $statement->bindParam(":Nombreest", $Nombreest);
+        $statement->bindParam(":Apellidoest", $Apellidoest);
+        $statement->bindParam(":Documentoest", $Documentoest);
+        $statement->bindParam(":Correoest", $Correoest);
+        $statement->bindParam(":Materiaest", $Materiaest);
+        $statement->bindParam(":Docenteest", $Docenteest);
+        $statement->bindParam(":Promedioes", $Promedioes);
+        $statement->bindParam(":Fechareg", $Fechareg);
+    
 
         if($statement->execute()){
-            echo"Estudiante registrado";
-            header('location: ../Pages/index.php');
+            print "<script>alert('Estudiantes registrado.');
+            window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar el registro";
-            header('location: ../Pages/agregar.php');
+            print "<script>alert('No se pudo realizar el registro.');
+            window.location='../pages/agregar.php';</script>";
         }
-    }
     }
 
-    //funcion para seleccionar todos los usuarios con el rol estudiante
-    public function getes(){
-        $row = null;
-        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE Perfil = 'Estudiante'");
-        $statement -> execute();
-        while($resul = $statement->fetch()){
-            $row[]  = $resul;
-        }
-        return $row;
-    }
 
-     //funcion para seleccionar todos los datos de los estudiantes
-     public function getestu(){
-        $row = null;
-        $statement = $this->db->prepare("SELECT * FROM estudiantes");
-        $statement -> execute();
-        while($resul = $statement->fetch()){
-            $row[]  = $resul;
-        }
-        return $row;
-    }
-    //Funcion para seleccionar un estudiante por su id
-    public function getidad($Id){
-        $row = null;
-        $statement = $this->db->prepare("SELECT * FROM estudiantes WHERE id_estudiante = :Id");
-        $statement -> bindParam(':Id',$Id);
+    public function getest(){
+        $row =null;
+        $statement=$this->db->prepare("SELECT * FROM estudiantes");
         $statement->execute();
-        while($resul = $statement->fetch()){
-            $row[]  = $resul;
+        while($result=$statement->fetch()){
+            $row[]=$result;
         }
         return $row;
+
     }
-    //Funcion para actualizar los datos del estudiante
-    public function updatead($Id, $Nombreestu, $Apellidoestu, $Documentoestu, $Correoestu, $Materia, $Docente,$Promedio,$Fecha_registro){
-        $statement = $this->db->prepare("UPDATE estudiantes SET Nombreestu = :Nombreestu, Apellidoestu = :Apellidoestu, Documentoestu = :Documentoestu, Correoestu = :Correoestu, Materia = :Materia, Docente = :Docente, Promedio = :Promedio, Fecha_registro = :Fecha_registro WHERE id_estudiante = :Id");
-        $statement -> bindParam(':Id',$Id);
-        $statement->bindParam(":Nombreestu", $Nombreestu);
-        $statement->bindParam(":Apellidoestu", $Apellidoestu);
-        $statement->bindParam(":Documentoestu", $Documentoestu);
-        $statement->bindParam(":Correoestu", $Correoestu);
-        $statement->bindParam(":Materia", $Materia);
-        $statement->bindParam(":Docente", $Docente);
-        $statement->bindParam(":Promedio", $Promedio);
-        $statement->bindParam(":Fecha_registro", $Fecha_registro);
-        if($statement->execute()){
-            header('Location: ../pages/index.php');
-        }else{
-            header('Location: ../pages/editar.php');
-        }
+    public function getidest($Id){
+        $statement=$this->db->prepare("SELECT * FROM estudiantes WHERE  id_estudiante=:Id");
+        $statement->bindparam(':Id',$Id);
+        $statement->execute();
+        $resultado =$statement->fetch(PDO::FETCH_ASSOC);
+        return $resultado;
     }
-    //Funcion para eliminar un estudiante
-    public function deletead($Id){
-        $statement = $this->db->prepare("DELETE FROM estudiantes WHERE id_estudiante = :Id");
-        $statement->bindParam(':Id',$Id);
+    public function updateest($Id,$Nombreest, $Apellidoest, $Documentoest, $Correoest, $Materiaest,$Docenteest,$Promedioes,$Fechareg){
+
+        $statement=$this->db->prepare("UPDATE estudiantes SET id_estudiante=:Id, Nombreestu=:Nombreest, Apellidoestu=:Apellidoest,Documentoestu=:Documentoest, Correoestu=:Correoest, Materia=:Materiaest, Docente=:Docenteest, Promedio=:Promedioes,Fecha_registro=:Fechareg WHERE id_estudiante=$Id" );
+
+        $statement->bindParam(":Id", $Id);
+        $statement->bindParam(":Nombreest", $Nombreest);
+        $statement->bindParam(":Apellidoest", $Apellidoest);
+        $statement->bindParam(":Documentoest", $Documentoest);
+        $statement->bindParam(":Correoest", $Correoest);
+        $statement->bindParam(":Materiaest", $Materiaest);
+        $statement->bindParam(":Docenteest", $Docenteest);
+        $statement->bindParam(":Promedioes", $Promedioes);
+        $statement->bindParam(":Fechareg", $Fechareg);
         if($statement->execute()){
-            echo "Estudiante eliminado";
-            header('Location: ../pages/index.php');
+            print "<script>alert('Estudiante actualizado');
+            window.location='../pages/index.php';</script>";
         }else{
-            echo "El estudiante no se pudo eliminar";
-            header('Location: ../pages/eliminar.php');
+            print "<script>alert('No se pudo realizar la actualización.');
+            window.location='../pages/editar.php';</script>";
         }
+
+    }
+    public function deleteest($Id){
+        $statement=$this->db->prepare("DELETE FROM estudiantes WHERE id_estudiante=:Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            print "<script>alert('Estudiante eliminado');
+            window.location='../pages/index.php';</script>";
+        }else{
+            print "<script>alert('Estudiante no eliminado');
+            window.location='../pages/eliminar.php';</script>";
+        }
+
+>>>>>>> camilos
     }
 }
 ?>
