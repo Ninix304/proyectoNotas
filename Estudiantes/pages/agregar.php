@@ -26,6 +26,12 @@
     </head>
     
     <body>
+        <?php
+            require_once('../../Conexion.php');
+            require_once('../../consultas.php');
+
+            $consul= new Consulta();
+        ?>
     
         <div id="contenedor">
             
@@ -39,29 +45,46 @@
                         <input id="Apellido" type="Apellido" placeholder="Apellido" name="txtapellidoest" required>
                         
                         <label for="Documento">Documento</label>
-                        <input id="Documento" type="number" placeholder="Documento" name="txtdocumentodoc" required>
+                        <input id="Documento" type="number" placeholder="Documento" name="txtdocumentoest" required>
                         
                         <label for="Correo">Correo</label>
                         <input id="Correo" type="email" placeholder="Correo" name="txtcorreoest" required>
                         
-                        <label for="Materia">Materia</label>
-                        <select name="txtmateriaest" id="Materia">
+                        <label for="Docente">Docente</label>
+                        <select name="txtdocente" id="Docente">
                             <option selected>Elegir opcion</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Docente">Docente</option>
+                            <?php
+                                $doce = $consul->getdocentes();
+                                if($doce != null){
+                                    foreach($doce as $do){
+                            ?>
+                            <option value="<?php echo $do['Nombredoc']; ?>"><?php echo $do['Nombredoc']; ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
                         </select>
 
                         <label for="Materia">Materia</label>
                         <select name="txtmateriaest" id="Materia">
-                            <option selected>Elegir opcion</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Docente">Docente</option>
+                            <option>Elegir opcion</option>
+                            <?php
+                                $mate = $consul->getmaterias();
+                                if($mate != null){
+                                    foreach($mate as $ma){
+                            ?>
+                            <option value="<?php echo $ma['Nombremate']; ?>"><?php echo $ma['Nombremate']; ?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
                         </select>
+
                         <label for="Promedio">Promedio</label>
                         <input id="Promedio" type="number" name="txtpromedioest" placeholder="Contraseña" required>
                        
                         <label for="Fechaest">Fecha de registro</label>
-                        <input id="Fechaest" type="number" name="txtfechaest" placeholder="Contraseña" required>
+                        <input id="Fechaest" type="date" name="txtfechaest" placeholder="Contraseña" required>
                        
 
                         <button type="submit" title="Registrar" name="Registrar">Registrar</button>

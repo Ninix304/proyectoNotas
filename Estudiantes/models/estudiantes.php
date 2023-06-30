@@ -4,14 +4,15 @@ class Estudiantes extends Conexion{
     public function __construct(){
         $this->db = parent::__construct();
     }
-    public function agregarest($Nombreest, $Apellidoest, $Documentoest, $Correoest, $Materiaest,$Promedioes,$Fechareg){
-        $statement = $this->db->prepare("INSERT INTO estudiantes(Nombreestu,Apellidoestu,Documentoestu,Correoestu,Materia,Docente,Promedio,Fecha_registro)VALUES(:Nombreest, :Apellidoest, :Documentoest, :Correoest, :Materiaest, :Docentees,:Promedioes,:Fechareg)");
+    public function agregarest($Nombreest, $Apellidoest, $Documentoest, $Correoest, $Materiaest,$Docenteest,$Promedioes,$Fechareg){
+        $statement = $this->db->prepare("INSERT INTO estudiantes(Nombreestu,Apellidoestu,Documentoestu,Correoestu,Materia,Docente,Promedio,Fecha_registro)VALUES(:Nombreest,:Apellidoest,:Documentoest,:Correoest,:Materiaest,:Docenteest,:Promedioes,:Fechareg)");
 
         $statement->bindParam(":Nombreest", $Nombreest);
         $statement->bindParam(":Apellidoest", $Apellidoest);
         $statement->bindParam(":Documentoest", $Documentoest);
         $statement->bindParam(":Correoest", $Correoest);
         $statement->bindParam(":Materiaest", $Materiaest);
+        $statement->bindParam(":Docenteest", $Docenteest);
         $statement->bindParam(":Promedioes", $Promedioes);
         $statement->bindParam(":Fechareg", $Fechareg);
     
@@ -26,7 +27,7 @@ class Estudiantes extends Conexion{
     }
 
 
-    public function getdoc(){
+    public function getest(){
         $row =null;
         $statement=$this->db->prepare("SELECT * FROM estudiantes");
         $statement->execute();
@@ -36,7 +37,7 @@ class Estudiantes extends Conexion{
         return $row;
 
     }
-    public function getiddoc($Id){
+    public function getidest($Id){
         $row=null;
         $statement=$this->db->prepare("SELECT * FROM estudiantes WHERE id_estudiante=:Id ");
         $statement->bindparam(':Id',$Id);
@@ -47,7 +48,7 @@ class Estudiantes extends Conexion{
         }
         return $row;
     }
-    public function updatead($Id,$Nombreest, $Apellidoest, $Documentoest, $Correoest, $Materiaest,$Promedioes,$Fechareg){
+    public function updateest($Id,$Nombreest, $Apellidoest, $Documentoest, $Correoest, $Materiaest,$Promedioes,$Fechareg){
 
         $statement=$this->db->prepare("UPDATE estudiantes SET Nombreestu=:Nombreest, Apellidoestu=:Apellidoest,Documentoestu=:Documentoest, Correoestu=:Correoest, Materia=:Materiaest, Promedio=:Promedioes,Fecha_registro=:Fechareg WHERE id_estudiante=$Id" );
 

@@ -1,12 +1,12 @@
 <?php
    require_once('../../Conexion.php');
-   require_once('../models/administrador.php');
+   require_once('../models/docentes.php');
 
-   $ad=new Administrador();
+   $ad=new Docentes();
 
    if($_SERVER['REQUEST_METHOD']=='POST'){
     $Id = $_POST['Id'];
-    $result=$ad->deletead($Id);
+    $result=$ad->deletedo($Id);
 
     if($result){
         print "<script>alert('usuario eliminado');

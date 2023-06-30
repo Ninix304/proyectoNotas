@@ -77,8 +77,8 @@ class Docentes extends Conexion{
         }
 
     }
-    public function deletead($Id){
-        $statement=$this->db->prepare("DELETE * FROM docente WHERE id_docente=:Id");
+    public function deletedo($Id){
+        $statement=$this->db->prepare("DELETE FROM docente WHERE id_docente=:Id");
         $statement->bindParam(':Id', $Id);
         if($statement->execute()){
             echo"docente eliminao";
