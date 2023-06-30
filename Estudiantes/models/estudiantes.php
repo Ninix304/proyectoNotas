@@ -78,7 +78,7 @@ class Estudiantes extends Conexion{
             window.location='../pages/eliminar.php';</script>";
         }
 
->>>>>>> camilos
+
     }
 }
 ?>
