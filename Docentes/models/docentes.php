@@ -27,11 +27,11 @@ class Docentes extends Conexion{
         $statement->bindParam(":Estadodo", $Estadodo);
 
         if($statement->execute()){
-            echo"Docente registrado";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Docente registrado');
+            window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar el docente";
-            header('Location: ../Pages/agregar.php');
+            print "<script>alert('El docente no se pudo registrar');
+            window.location='../pages/agregar.php';</script>";
         }
     }
     }
@@ -69,11 +69,11 @@ class Docentes extends Conexion{
         $statement->bindParam(":Perfildo", $Perfildo);
         $statement->bindParam(":Estadodo", $Estadodo);
         if($statement->execute()){
-            echo"docente actualizado";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Docente actualizado.');
+            window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar la actualizacion";
-            header('Location: ../Pages/editar.php');
+            print "<script>alert('El docente no se pudo actualizar.');
+            window.location='../pages/editar.php';</script>";
         }
 
     }
@@ -81,11 +81,11 @@ class Docentes extends Conexion{
         $statement=$this->db->prepare("DELETE FROM docente WHERE id_docente=:Id");
         $statement->bindParam(':Id', $Id);
         if($statement->execute()){
-            echo"docente eliminao";
-            header('Location: ../Pages/index.php');
+            print "<script>alert('Docente eliminado');
+            window.location='../pages/index.php';</script>";
         }else{
-            echo "No se pudo realizar la eliminacion";
-            header('Location: ../Pages/eliminar.php');
+            print "<script>alert('El docente no se pudo eliminar.');
+            window.location='../pages/eliminar.php';</script>";
         }
 
     }

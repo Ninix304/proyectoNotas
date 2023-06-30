@@ -49,7 +49,7 @@
                         <td><?php echo $datos['Promedio'] ?></td>
                         <td><?php echo $datos['Fecha_registro'] ?></td>
                         <td><a href="editar.php?Id=<?php echo $datos['id_estudiante'] ?>" class="btn btn-primary">ACTUALIZAR</a></td>
-                        <td><a href="eliminar.php?Id=<?php echo $datos['id_estudiante'] ?>" class="btn btn-danger">ELIMINAR</a></td>
+                        <td><a href="../controller/eliminarestudiante.php?Id=<?php echo $datos['id_estudiante'] ?>" class="btn btn-danger">ELIMINAR</a></td>
 
                     </tr>
                     <?php } ?>

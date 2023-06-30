@@ -48,7 +48,7 @@
                         <td><?php echo $datos['Perfil'] ?></td>
                         <td><?php echo $datos['Estadodoc'] ?></td>
                         <td><a href="editar.php?Id=<?php echo $datos['id_docente'] ?>" class="btn btn-primary">ACTUALIZAR</a></td>
-                        <td><a href="eliminar.php?Id=<?php echo $datos['id_docente'] ?>" class="btn btn-warning">ELIMINAR</a></td>
+                        <td><a href="../controller/eliminardocente.php?Id=<?php echo $datos['id_docente'] ?>" class="btn btn-warning">ELIMINAR</a></td>
 
                     </tr>
                     <?php } ?>

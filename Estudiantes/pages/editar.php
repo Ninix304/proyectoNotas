@@ -31,7 +31,7 @@
             require_once('../../consultas.php');
 
             $consul= new Consulta();
-            require_once('../../Estudiantes/models/estudiantes.php');
+            require_once('../models/estudiantes.php');
     
             $Id=$_GET['Id'];
             $est = new Estudiantes();
@@ -54,13 +54,13 @@
                         <input id="Nombre" type="text" name="txtnombreest" value="<?php echo $row['Nombreestu']?>">
                         
                         <label for="Apellido">Apellido</label>
-                        <input id="Apellido" type="Apellido" placeholder="Apellido" value="<?php echo $row['Apellidoestu']?>">
+                        <input id="Apellido" type="text" name="txtapellidoest" value="<?php echo $row['Apellidoestu']?>">
                         
                         <label for="Documento">Documento</label>
-                        <input id="Documento" type="number" placeholder="Documento" value="<?php echo $row['Documentoestu']?>">
+                        <input id="Documento" type="number" name="txtdocumentoest" value="<?php echo $row['Documentoestu']?>">
                         
                         <label for="Correo">Correo</label>
-                        <input id="Correo" type="email" placeholder="Correo" value="<?php echo $row['Correoestu']?>">
+                        <input id="Correo" type="email" name="txtcorreoest" value="<?php echo $row['Correoestu']?>">
                         
                         <label for="Docente">Docente</label>
                         <select name="txtdocente" id="Docente" value="<?php echo $row['Docente']?>">
