@@ -1,39 +1,22 @@
 <html lang="es">
-    
-    <head>
-        
-        <meta charset="utf-8">
-        
-        <title> Formulario de Acceso </title>    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        
-        
-        <link rel="stylesheet" href="../../css/login.css">
-        
-        <style type="text/css">
-            
-        </style>
-        
-        <script type="text/javascript">
-        
-        </script>
-        
-    </head>
-    
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <title> Formulario de edición </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/login.css">
+</head>
+
+<body>
 
     <?php
-        require_once('../../Conexion.php');
-        require_once('../models/administrador.php');
+    require_once('../../Conexion.php');
+    require_once('../models/administrador.php');
 
-        $Id=$_GET['Id'];
-        $admin = new Administrador();
-        $row=$admin->getidad($Id);
+    $Id = $_GET['Id'];
+    $admin = new Administrador();
+    $row = $admin->getidad($Id);
 
         if($row){
 
@@ -42,7 +25,7 @@
     
 
         <div id="contenedor">
-            
+
             <div id="contenedorcentrado">
                 <div id="login">
 
@@ -50,19 +33,23 @@
                     <form id="loginform" action="../Controller/editarusuario.php" method="post">
                         <input id="Id" type="hidden" name="txtid" placeholder="Id" value="<?php echo $Id ?>">
                         <label for="nombre">Nombre</label>
-                        <input id="Nombre" type="text" name="txtnombre" placeholder="Nombre" value="<?php echo $row['Nombreusu']?>">
-                        
+                        <input id="Nombre" type="text" name="txtnombre" placeholder="Nombre"
+                            value="<?php echo $row['Nombreusu'] ?>">
+
                         <label for="Apellido">Apellido</label>
-                        <input id="Apellido" type="Apellido" placeholder="Apellido" name="txtapellido" value="<?php echo $row['Apellidousu']?>">
-                        
+                        <input id="Apellido" type="Apellido" placeholder="Apellido" name="txtapellido"
+                            value="<?php echo $row['Apellidousu'] ?>">
+
                         <label for="Usuario">Usuario</label>
-                        <input id="Usuario" type="text" name="txtusuario" placeholder="Usuario" value="<?php echo $row['Usuario']?>">
-                        
+                        <input id="Usuario" type="text" name="txtusuario" placeholder="Usuario"
+                            value="<?php echo $row['Usuario'] ?>">
+
                         <label for="Contraseña">Contraseña</label>
-                        <input id="Contraseña" type="password" name="txtcontrasena" placeholder="Contraseña" value="<?php echo $row['Passwordusu']?>">
-                        
+                        <input id="Contraseña" type="password" name="txtcontrasena" placeholder="Contraseña"
+                            value="<?php echo $row['Passwordusu'] ?>">
+
                         <label for="Perfil">Perfil</label>
-                        <select required name="txtperfil" id="perfil" value="<?php echo $row['Perfil']?>">
+                        <select required name="txtperfil" id="perfil" value="<?php echo $row['Perfil'] ?>">
 
                             
                             <option selected value="Administrador">Administrador</option>
@@ -80,21 +67,22 @@
                         <button type="submit" title="Actualizar" name="Actualizar">Actualizar</button>
                     </form>
 
-               <?php } ?>
+                <?php } ?>
 
+            </div>
+            <div id="derecho">
+                <div class="titulo">
+                    Actualizacion de usuario
                 </div>
-                <div id="derecho">
-                    <div class="titulo">
-                        Actualizacion de ususaurio
-                    </div>
+                <hr>
+                <div class="pie-form">
                     <hr>
-                    <div class="pie-form">
-                        <hr>
-                        <a href="index.php">« Volver</a>
-                    </div>
+                    <a href="index.php">« Volver</a>
                 </div>
             </div>
         </div>
-        
-    </body>
+    </div>
+
+</body>
+
 </html>

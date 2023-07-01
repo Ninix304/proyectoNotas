@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Listado de usuarios</title>
 
 </head>
+
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
     <div class="container">
 
         <h1 style="text-align: center;">Listado de usuarios </h1>
@@ -31,32 +36,48 @@
                 </tr>
                 <tbody>
                     <?php
-                        require_once('../../Conexion.php');
-                        require_once('../models/administrador.php');
-                        $objeto =new Administrador();
-                        $datos=$objeto->getad();
-                    
-                        foreach($datos as $datos){
+                    require_once('../../Conexion.php');
+                    require_once('../models/administrador.php');
+                    $objeto = new Administrador();
+                    $datos = $objeto->getad();
 
-                            ?>
-                    <tr>
-                        <td><?php echo $datos['id_usuario'] ?></td>
-                        <td><?php echo $datos['Nombreusu'] ?></td>
-                        <td><?php echo $datos['Apellidousu'] ?></td>
-                        <td><?php echo $datos['Usuario'] ?></td>
-                        <td><?php echo $datos['Perfil'] ?></td>
-                        <td><?php echo $datos['Estado'] ?></td>
-                        <td><a href="editar.php?Id=<?php echo $datos['id_usuario'] ?>" class="btn btn-primary">ACTUALIZAR</a></td>
+                    foreach ($datos as $datos) {
 
-                        <td><a href="../Controller/eliminarusuario.php?Id=<?php echo $datos['id_usuario'] ?>" class="btn btn-danger">ELIMINAR</a></td>
+                        ?>
+                        <tr>
+                            <td>
+                                <?php echo $datos['id_usuario'] ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['Nombreusu'] ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['Apellidousu'] ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['Usuario'] ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['Perfil'] ?>
+                            </td>
+                            <td>
+                                <?php echo $datos['Estado'] ?>
+                            </td>
+                            <td><a href="editar.php?Id=<?php echo $datos['id_usuario'] ?>"
+                                    class="btn btn-primary">ACTUALIZAR</a></td>
+
+                            <td><a href="../Controller/eliminarusuario.php?Id=<?php echo $datos['id_usuario'] ?>"
+                                    class="btn btn-danger">ELIMINAR</a></td>
 
 
-                    </tr>
+                        </tr>
                     <?php } ?>
                 </tbody>
 
             </table>
         </div>
+        <a href="../../inicio.php" class="btn btn-success">« Volver</a>
     </div>
 </body>
+
 </html>
