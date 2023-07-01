@@ -70,9 +70,9 @@
                         
                         <label for="Perfil" value="<?php echo $row['Perfil']?>">Perfil</label>
                         <select name="txtperfildoc" id="perfil">
-                            <option selected>Elegir opcion</option>
+                            
                             <option value="Administrador">Administrador</option>
-                            <option value="Docente">Docente</option>
+                            <option selected value="Docente">Docente</option>
                         </select>
                         
                         <label for="Estado" value="<?php echo $row['Estadodoc']?>">Estado</label>

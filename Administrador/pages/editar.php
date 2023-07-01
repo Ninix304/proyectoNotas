@@ -62,15 +62,15 @@
                         <input id="Contraseña" type="password" name="txtcontrasena" placeholder="Contraseña" value="<?php echo $row['Passwordusu']?>">
                         
                         <label for="Perfil">Perfil</label>
-                        <select name="txtperfil" id="perfil" value="<?php echo $row['Perfil']?>">
+                        <select required name="txtperfil" id="perfil" value="<?php echo $row['Perfil']?>">
 
-                            <option selected>Elegir opcion</option>
-                            <option value="Administrador">Administrador</option>
+                            
+                            <option selected value="Administrador">Administrador</option>
                             <option value="Docente">Docente</option>
                         </select>
                         
                         <label for="Estado" value="<?php echo $row['Estado']?>">Estado</label>
-                        <select name="txtestado" id="Estado">
+                        <select name="txtestado" id="Estado" required>
 
                             <option selected>Elegir opcion</option>
                             <option value="Activo">Activo</option>
