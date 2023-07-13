@@ -1,5 +1,5 @@
 <?php
-if($_POST["txtusuario"]=="Juan Padua" && $_POST["txtcontrasena"]=="123456");{
+if($_POST["txtusuario"]=="Juan Padua" && $_POST["txtcontrasena"]=="123456"){
     //crear la sesion
 
     session_start();
@@ -11,10 +11,11 @@ if($_POST["txtusuario"]=="Juan Padua" && $_POST["txtcontrasena"]=="123456");{
     $_SESSION["start"]=time();
     $_SESSION["expire"]= $_SESSION["start"] + (1*120);
 
-    header("location:../../index.php");
+    header("location:../../inicio.php");
+
 }else{
     print "<script>alert(\"verificar los datos de ingreso\");
-    windows.location='../../inicio.php';</script>"
+    window.location='../../index.php';</script>";
 }
 
 

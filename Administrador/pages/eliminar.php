@@ -17,6 +17,7 @@
     $Id= $_GET['Id'];
     ?>
     <form action="../Controller/eliminarusuario.php" method="POST">
+    <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
         <div class="form-group">
         <label>ID Usuario </label>
         <input type="number" name="Id" placeholder="Ingrese el ID">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php require_once('../../Usuarios/controller/validar.php') ?>
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,6 +15,7 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <div class="container">
+    <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
         <h1 style="text-align: center;">Listado de Docentes </h1>
         <div col="col-auto-mt-5">
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once('../../Usuarios/controller/validar.php') ?>
 <html lang="en">
 
 <head>
@@ -17,6 +18,7 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <div class="container">
+    <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
 
         <h1 style="text-align: center;">Listado de usuarios </h1>
 

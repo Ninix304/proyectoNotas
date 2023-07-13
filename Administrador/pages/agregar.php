@@ -1,4 +1,7 @@
 <html lang="es">
+<?php require_once('../../Usuarios/controller/validar.php');
+
+?>
 
 <head>
     <meta charset="utf-8">
@@ -53,6 +56,7 @@
                 <div class="pie-form">
                     <hr>
                     <a href="../../inicio.php">« Volver</a>
+                    <a href="../../Usuarios/controller/salir.php">Cerrar sesion</a>
                 </div>
             </div>
         </div>
