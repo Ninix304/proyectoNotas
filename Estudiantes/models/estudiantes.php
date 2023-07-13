@@ -1,5 +1,6 @@
 <?php
 include_once('../../Conexion.php');
+
 class Estudiantes extends Conexion{
     public function __construct(){
         $this->db = parent::__construct();
@@ -76,6 +77,7 @@ class Estudiantes extends Conexion{
             print "<script>alert('Estudiante no eliminado');
             window.location='../pages/eliminar.php';</script>";
         }
+
 
     }
 }
