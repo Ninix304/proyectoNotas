@@ -1,3 +1,6 @@
+<?php
+require_once('../../Usuarios/controller/validar.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,8 @@
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <div class="container">
-        <h1 style="text-align: center;">Listado de Materias </h1>
+    <h1 class="text-center">Bienvenido: <?php echo $_SESSION["usuario"]; ?></h1>     
+    <h1 style="text-align: center;">Listado de Materias </h1>
         <div col="col-auto-mt-5">
 
             <table class="table table-dark table-hover">
@@ -53,6 +57,7 @@
             </table>
         </div>
         <a href="../../inicio.php" class="btn btn-success">« Volver</a>
+        <a href="../../Usuarios/controller/salir.php" class="btn btn-danger">« Cerrar sesión</a>
     </div>
 </body>
 

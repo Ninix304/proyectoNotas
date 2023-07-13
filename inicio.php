@@ -1,6 +1,8 @@
+<?php
+require_once('Usuarios/controller/validar.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +22,8 @@
   <div class="bg-image">
     <div class="d-flex justify-content-center align-items-center vh-100">
       <div class="shadow p-3 bg-white rounded">
-        <h1 class="text-center">Inicio</h1>
+      <h1 class="text-center">Bienvenido: <?php echo $_SESSION["usuario"]; ?></h1>  
+      <h1 class="text-center">Inicio</h1>
         <h1>Agregar:</h1>
         <a href="Administrador/pages/agregar.php" class="btn btn-info btn-lg">Administrador</a>
         <a href="Docentes/pages/agregar.php" class="btn btn-info btn-lg">Docente</a>
@@ -32,7 +35,7 @@
         <a href="Materias/pages/index.php" class="btn btn-outline-dark btn-lg">Materias</a>
         <a href="Estudiantes/pages/index.php" class="btn btn-outline-dark btn-lg">Estudiantes</a>
         <div class="mt-5">
-          <a href="index.php" class="btn btn-success btn-sm">Cerrar sesión</a>
+          <a href="Usuarios/controller/salir.php" class="btn btn-success btn-sm">Cerrar sesión</a>
         </div>
       </div>
     </div>

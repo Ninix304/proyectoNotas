@@ -82,6 +82,7 @@
                 <div class="pie-form">
                     <hr>
                     <a href="../../inicio.php">« Volver</a>
+                    <a href="../../Usuarios/controller/salir.php" class="btn btn-danger">« Cerrar sesión</a>
                 </div>
             </div>
         </div>

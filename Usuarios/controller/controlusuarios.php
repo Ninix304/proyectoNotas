@@ -10,7 +10,7 @@ if($_POST["txtusuario"]=="Nixon Cañon" && $_POST["txtcontrasena"]=="123456"){
     $_SESSION["expire"]= $_SESSION["start"] + (1*60);
     header("location: ../../inicio.php");
 }else{
-    print "<script>alert(\"Los datos que ingreso no son correctos, estupido\");window.location='../../index.php';</script>";
+    print "<script>alert(\"Los datos que ingreso no son correctos\");window.location='../../index.php';</script>";
 }
 
 
