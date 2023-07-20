@@ -15,17 +15,17 @@
             <img src="img/user.png" class="rounded mx-auto d-block" width="250" height="250">
         </div>
         <div class="shadow p-3 mt-3">
-            <form action="Usuarios/controller/controlusuarios.php" method="post">
+            <form action="Usuarios/controller/usuarioscontrolador.php" method="post">
                 <h1>Inicio de sesión</h1>
                 <label class="form-label">Usuario</label>
                 <input class="form-control" type="text" name="txtusuario">
                 <label class="form-label">Contraseña</label>
-                <input class="form-control" type="text" name="txtcontrasena">
+                <input class="form-control" type="password" name="txtcontrasena">
                 <a href="Administrador/pages/editar.php" class="text-secondary">Contraseña olvidada?</a>
                 <div class="mt-3">
                     <input type="submit" class="btn btn-primary mb-3" value="Iniciar sesión">
-                    <h2>No tiene cuenta?</h2>
-                    <a href="Administrador/pages/agregar.php">Inscribirse</a>
+                    <h2>¿No tiene cuenta?</h2>
+                    <a href="Administrador/pages/agregar.php">Registrarse</a>
                 </div>
             </form>
         </div>
