@@ -26,7 +26,6 @@ class Administrador extends Conexion{
         $statement->bindParam(":Estadoad", $Estadoad);
 
         if($statement->execute()){
-
             print "<script>alert('Usuario registrado');
         window.location='../pages/index.php';</script>";
         }else{

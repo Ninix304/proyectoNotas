@@ -1,3 +1,6 @@
+<?php
+require_once('../../Usuarios/controller/validar.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +14,14 @@
 </head>
 
 <body>
-<?php require_once('../../Usuarios/controller/validar.php') ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <div class="container">
-        <h1 style="text-align: center;">Listado de Materias </h1>
+    <h1 class="text-center">Bienvenido: <?php echo $_SESSION["usuario"]; ?></h1>     
+    <h1 style="text-align: center;">Listado de Materias </h1>
         <div col="col-auto-mt-5">
-        <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
+
             <table class="table table-dark table-hover">
                 <tr>
                     <th>ID MATERIA</th>
@@ -53,7 +56,8 @@
 
             </table>
         </div>
-        <a href="../../Usuarios/controller/salir.php" class="btn btn-success">« Volver</a>
+        <a href="../../inicio.php" class="btn btn-success">« Volver</a>
+        <a href="../../Usuarios/controller/salir.php" class="btn btn-danger">« Cerrar sesión</a>
     </div>
 </body>
 
