@@ -8,6 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Estudiantes</title>
+    <?php require_once('../../Usuarios/controller/validar.php') ?>
 </head>
 
 <body>
@@ -19,6 +20,7 @@
         <div col="col-auto-mt-5">
 
             <table class="table table-dark table-hover">
+            <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
                 <tr>
                     <th>ID Estudiante</th>
                     <th>Nombre </th>
@@ -71,12 +73,23 @@
                             <td>
                                 <?php echo $datos['Fecha_registro'] ?>
                             </td>
-                            <td><a href="editar.php?Id=<?php echo $datos['id_estudiante'] ?>"
-                                    class="btn btn-primary">ACTUALIZAR</a></td>
+                            <?php
+                                if($_SESSION['rol']==='Docente'){
+                            ?>
+                            <td><a class="disabled" href="editar.php?Id=<?php echo $datos['id_estudiante'] ?>"
+                                    class="btn btn-primary disabled"></a></td>
+                            <td><a href="../controller/eliminarestudiante.php?Id=<?php echo $datos['id_estudiante'] ?>"
+                                    class="btn btn-danger"></a></td>
+                            <?php
+                                }else{  
+                                
+                            ?>
+                            <td><a  href="editar.php?Id=<?php echo $datos['id_estudiante'] ?>"
+                                    class="btn btn-primary ">ACTUALIZAR</a></td>
                             <td><a href="../controller/eliminarestudiante.php?Id=<?php echo $datos['id_estudiante'] ?>"
                                     class="btn btn-danger">ELIMINAR</a></td>
-
                         </tr>
+                        <?php } ?>
                     <?php } ?>
                 </tbody>
 

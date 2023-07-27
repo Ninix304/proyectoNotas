@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php require_once('../../Usuarios/controller/validar.php') ?>
+
 <html lang="en">
 
 <head>
@@ -8,7 +8,10 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    require_once('../../Usuarios/controller/validar.php');
 
+  ?>
     <title>Listado de usuarios</title>
 
 </head>

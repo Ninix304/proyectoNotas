@@ -1,5 +1,5 @@
 <html lang="es">
-<?php require_once('../../Usuarios/controller/validar.php');
+
 
 ?>
 
