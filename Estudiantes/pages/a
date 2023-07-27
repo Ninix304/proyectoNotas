@@ -1,0 +1,20 @@
+!DOCTYPE <HTML>
+<head>
+    <meta charset="utf 8">
+    <meta name="viewpoimt" content="width=de">
+    <title>mi pagina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="mqdefault.jpg">
+        <nav>
+            <ul>
+                <li>inicio</li>
+                <li>productos</li>
+                <li>contactos</li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</HTML>g

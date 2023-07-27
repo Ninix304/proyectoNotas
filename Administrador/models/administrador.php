@@ -7,6 +7,7 @@ class Administrador extends Conexion{
     public function agregarad($Nombread, $Apellidoad, $Usuarioad, $Passwordad, $Perfilad, $Estadoad){
         $hash1 = password_hash($Passwordad, PASSWORD_DEFAULT);
         
+        $hash1= password_hash($Passwordad, PASSWORD_DEFAULT);
         $sql1= "SELECT * FROM Usuarios WHERE Usuario = '$Usuarioad'";
         $resultado=$this->db->query($sql1);
         if($resultado->rowCount() >0){
@@ -18,16 +19,17 @@ class Administrador extends Conexion{
         else{
         
         $statement = $this->db->prepare("INSERT INTO Usuarios(Nombreusu,Apellidousu,Usuario,Passwordusu,Perfil,Estado)VALUES(:Nombread,:Apellidoad,:Usuarioad,:hash1,:Perfilad,:Estadoad)");
+        $statement = $this->db->prepare("INSERT INTO Usuarios(Nombreusu,Apellidousu,Usuario,Passwordusu,Perfil,Estado)VALUES(:Nombread,:Apellidoad,:Usuarioad,:hash1,:Perfilad,:Estadoad)");
 
         $statement->bindParam(":Nombread", $Nombread);
         $statement->bindParam(":Apellidoad", $Apellidoad);
         $statement->bindParam(":Usuarioad", $Usuarioad);
         $statement->bindParam(":hash1", $hash1);
+        $statement->bindParam(":hash1", $hash1);
         $statement->bindParam(":Perfilad", $Perfilad);
         $statement->bindParam(":Estadoad", $Estadoad);
 
         if($statement->execute()){
-
             print "<script>alert('Usuario registrado');
         window.location='../pages/index.php';</script>";
         }else{

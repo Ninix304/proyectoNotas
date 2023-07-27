@@ -1,18 +1,20 @@
 <?php
-if($_POST["txtusuario"]=="Nixon Cañon" && $_POST["txtcontrasena"]=="123456"){
-    //crear la sesión
+if($_POST["txtusuario"]=="Juan Padua" && $_POST["txtcontrasena"]=="123456"){
+    //crear la sesion
+
     session_start();
 
-    //Definir variables de sesión
+    //definir variables de la sesion
+
     $_SESSION["usuario"]=$_POST["txtusuario"];
     $_SESSION["validar"]=true;
     $_SESSION["start"]=time();
-    $_SESSION["expire"] = $_SESSION["start"] + (1*60);
-    header("location: ../../inicio.php");
+    $_SESSION["expire"]= $_SESSION["start"] + (1*120);
+
+    header("location:../../inicio.php");
+
 }else{
-    print "<script>alert(\"Los datos que ingreso no son correctos\");window.location='../../index.php';</script>";
+    print "<script>alert(\"verificar los datos de ingreso\");
+    window.location='../../index.php';</script>";
 }
 
-
-
-?>

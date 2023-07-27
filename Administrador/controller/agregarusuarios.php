@@ -7,7 +7,7 @@ if($_POST){
     $nombreusu=$_POST['txtnombre'];
     $apellidousu=$_POST['txtapellido'];
     $usuariousu=$_POST['txtusuario'];
-    $passwordusu=MD5($_POST['txtcontrasena']);
+    $passwordusu=$_POST['txtcontrasena'];
     $perfil=$_POST['txtperfil'];
     $estadousu=$_POST['txtestado'];
     $admin->agregarad($nombreusu,$apellidousu,$usuariousu,$passwordusu,$perfil,$estadousu);

@@ -15,7 +15,7 @@
             <img src="img/user.png" class="rounded mx-auto d-block" width="250" height="250">
         </div>
         <div class="shadow p-3 mt-3">
-            <form action="Usuarios/controller/usuarioscontrolador.php" method="post">
+            <form action="Usuarios/controller/usuarioscontrol.php" method="post">
                 <h1>Inicio de sesión</h1>
                 <label class="form-label">Usuario</label>
                 <input class="form-control" type="text" name="txtusuario">

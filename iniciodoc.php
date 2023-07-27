@@ -1,8 +1,6 @@
-<?php
-require_once('Usuarios/controller/validar.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <?php
     require_once('Usuarios/controller/validar.php');
@@ -29,16 +27,10 @@ require_once('Usuarios/controller/validar.php');
   <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
     <div class="d-flex justify-content-center align-items-center vh-100">
       <div class="shadow p-3 bg-white rounded">
-      <h1 class="text-center">Bienvenido: <?php echo $_SESSION["usuario"]; ?></h1>  
-      <h1 class="text-center">Inicio</h1>
+        <h1 class="text-center">Inicio</h1>
         <h1>Agregar:</h1>
-        <a href="Administrador/pages/agregar.php" class="btn btn-info btn-lg">Administrador</a>
-        <a href="Docentes/pages/agregar.php" class="btn btn-info btn-lg">Docente</a>
         <a href="Materias/pages/agregar.php" class="btn btn-info btn-lg">Materia</a>
-        <a href="Estudiantes/pages/agregar.php" class="btn btn-info btn-lg">Estudiante</a>
         <h1 class="mt-3">Listar:</h1>
-        <a href="Administrador/pages/index.php" class="btn btn-outline-dark btn-lg">Administradores</a>
-        <a href="Docentes/pages/index.php" class="btn btn-outline-dark btn-lg">Docentes</a>
         <a href="Materias/pages/index.php" class="btn btn-outline-dark btn-lg">Materias</a>
         <a href="Estudiantes/pages/index.php" class="btn btn-outline-dark btn-lg">Estudiantes</a>
         <div class="mt-5">

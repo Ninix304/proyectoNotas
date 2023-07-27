@@ -14,6 +14,7 @@
 
         <div id="contenedorcentrado">
             <div id="login">
+            
                 <form id="loginform" action="../Controller/Agregardocente.php" method="post">
                     <label for="nombre">Nombre </label>
                     <input id="Nombre" type="text" name="txtnombredoc" placeholder="Nombre" required>
@@ -62,7 +63,8 @@
                 <div class="pie-form">
                     <hr>
                     <a href="../../inicio.php">« Volver</a>
-                    <a href="../../Usuarios/controller/salir.php" class="btn btn-danger">« Cerrar sesión</a>
+                    <a href="../../Usuarios/controller/salir.php">« Cerrar sesion</a>
+
                 </div>
             </div>
         </div>

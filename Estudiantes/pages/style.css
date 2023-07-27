@@ -1,0 +1,25 @@
+a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+header{
+    width: 100%;
+    height: 170px;
+    background: url('images.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat ;
+    background: size 100%;
+}
+ul{
+    position: absolute;
+    top: 20%;
+}
+li{
+    display: intline;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
