@@ -1,8 +1,7 @@
 <html lang="es">
-
 <head>
     <meta charset="utf-8">
-    <title> Formulario de edición </title>
+    <title> Editar estudiante </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/login.css">
@@ -12,10 +11,10 @@
     <?php
     require_once('../../Conexion.php');
     require_once('../../consultas.php');
-
-    $consul = new Consulta();
     require_once('../models/estudiantes.php');
 
+    $consul = new Consulta();
+    
     $Id = $_GET['Id'];
     $est = new Estudiantes();
     $row = $est->getidest($Id);
@@ -23,10 +22,7 @@
     if ($row) {
 
         ?>
-
-
         <div id="contenedor">
-
             <div id="contenedorcentrado">
                 <div id="login">
                     <form id="loginform" action="../Controller/editarestudiante.php" method="post">

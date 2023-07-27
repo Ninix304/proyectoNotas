@@ -1,5 +1,7 @@
 <html lang="es">
-
+<?php
+require_once('../../Usuarios/controller/validar.php')
+?>
 <head>
     <meta charset="utf-8">
     <title>Agregar Materia</title>
@@ -7,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../css/login.css">
 </head>
-
 <body>
 
     <div id="contenedor">
@@ -29,7 +30,15 @@
                 <hr>
                 <div class="pie-form">
                     <hr>
-                    <a href="../../inicio.php">« Volver</a>
+                    <?php
+            if($_SESSION['rol']==='Docente'){
+        ?>
+        <a href="../../iniciodoc.php" class="btn btn-success">« Volver</a>
+        <?php
+            }else{                         
+        ?>
+            <a href="../../inicio.php" class="btn btn-success">« Volver</a>
+        <?php } ?>
                     <a href="../../Usuarios/controller/salir.php" class="btn btn-danger">« Cerrar sesión</a>
                 </div>
             </div>

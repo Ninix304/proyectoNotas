@@ -4,10 +4,6 @@ require_once('Usuarios/controller/validar.php');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php
-    require_once('Usuarios/controller/validar.php');
-
-  ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,7 +22,7 @@ require_once('Usuarios/controller/validar.php');
 
 
   <div class="bg-image">
-  <h2>BIENVENIDO :<?php echo $_SESSION["usuario"]; ?>
+  <h2>BIENVENIDO: <?php echo $_SESSION["usuario"]; ?>
     <div class="d-flex justify-content-center align-items-center vh-100">
       <div class="shadow p-3 bg-white rounded">
       <h1 class="text-center">Bienvenido: <?php echo $_SESSION["usuario"]; ?></h1>  

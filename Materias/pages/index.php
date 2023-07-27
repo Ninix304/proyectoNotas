@@ -2,8 +2,7 @@
 require_once('../../Usuarios/controller/validar.php')
 ?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -56,7 +55,15 @@ require_once('../../Usuarios/controller/validar.php')
 
             </table>
         </div>
-        <a href="../../inicio.php" class="btn btn-success">« Volver</a>
+        <?php
+            if($_SESSION['rol']==='Docente'){
+        ?>
+        <a href="../../iniciodoc.php" class="btn btn-success">« Volver</a>
+        <?php
+            }else{                         
+        ?>
+            <a href="../../inicio.php" class="btn btn-success">« Volver</a>
+        <?php } ?>
         <a href="../../Usuarios/controller/salir.php" class="btn btn-danger">« Cerrar sesión</a>
     </div>
 </body>
